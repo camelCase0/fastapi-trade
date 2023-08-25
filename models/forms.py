@@ -1,4 +1,3 @@
-
 from datetime import datetime
 from enum import Enum
 from typing import List, Optional
@@ -7,7 +6,7 @@ from pydantic import BaseModel, Field
 
 class Trade(BaseModel):
     id: int
-    user_id: int
+    # user_id: int
     currency: str = Field(max_length=5)
     side: str
     price: float = Field(ge=0)

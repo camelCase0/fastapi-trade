@@ -17,7 +17,7 @@ role = Table(
     "role",
     metadata,
     Column("id", Integer, primary_key=True),
-    Column("name", Integer, nullable=False),
+    Column("name", String, nullable=False),
     Column("permission", JSON),
 )
 
