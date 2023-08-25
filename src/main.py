@@ -1,18 +1,11 @@
-from auth.database import User
-from auth.manager import get_user_manager
-from auth.auth import auth_backend
-from auth.schema import UserCreate, UserRead, UserUpdate
+from src.auth.auth import auth_backend, fastapi_users
+from src.auth.schema import UserCreate, UserRead, UserUpdate
 from fastapi import FastAPI
-from fastapi_users import FastAPIUsers
 
 # from models.forms import User, Trade
 
 app = FastAPI(title="Trading app")
 
-fastapi_users = FastAPIUsers[User, int](
-    get_user_manager,
-    [auth_backend],
-)
 
 app.include_router(
     fastapi_users.get_auth_router(auth_backend),
