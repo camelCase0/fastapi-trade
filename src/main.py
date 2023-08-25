@@ -1,11 +1,11 @@
 from src.auth.auth import auth_backend, fastapi_users
 from src.auth.schema import UserCreate, UserRead, UserUpdate
 from fastapi import FastAPI
+from src.operations.router import router as operation_router
 
 # from models.forms import User, Trade
 
 app = FastAPI(title="Trading app")
-
 
 app.include_router(
     fastapi_users.get_auth_router(auth_backend),
@@ -24,6 +24,8 @@ app.include_router(
     prefix="/users",
     tags=["users"],
 )
+
+app.include_router(operation_router)
 
 # @app.get("/")
 # def index():

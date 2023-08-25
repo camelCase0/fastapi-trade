@@ -1,4 +1,5 @@
 
+from datetime import datetime
 from sqlalchemy import TIMESTAMP, Column, Integer, MetaData, String, Table
 
 
@@ -11,6 +12,6 @@ operation = Table(
     Column("quantity",String),
     Column("figi",String),
     Column("instrument_type",String, nullable=True),
-    Column("date",TIMESTAMP),
+    Column("date",TIMESTAMP,default=datetime.utcnow),
     Column("type",String),
 )
