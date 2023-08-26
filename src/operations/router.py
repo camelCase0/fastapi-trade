@@ -7,18 +7,25 @@ from src.operations.schemas import OperationCreate
 
 router = APIRouter(
     prefix="/operations",
-    tags=["Operation"],
+    tags=["operation"],
 )
 
 @router.get("/")
 async def get_specific_operation(operation_type:str, session: AsyncSession = Depends(get_async_session)):
     query = select(operation).where(operation.c.type == operation_type )
     result = await session.execute(query)
-    return result.all()
+    return result.mappings().all()
+
 # BUGS!!!!
-# @router.post("/")
-# async def add_specific_operation(new_operation:OperationCreate, session: AsyncSession = Depends(get_async_session)):
-#     query = insert(operation).values(**new_operation.model_dump())
-#     await session.execute(query)
-#     await session.commit()
-#     return{"status":"success"}
+@router.post("/")
+async def add_specific_operation(new_operation:OperationCreate, session: AsyncSession = Depends(get_async_session)):
+    
+    query = insert(operation).values(
+        quantity = new_operation.quantity,
+        figi = new_operation.figi,
+        instrument_type = new_operation.instrument_type,
+        type = new_operation.type,
+    )
+    await session.execute(query)
+    await session.commit()
+    return{"status":"success"}
