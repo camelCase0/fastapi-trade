@@ -19,13 +19,7 @@ async def get_specific_operation(operation_type:str, session: AsyncSession = Dep
 # BUGS!!!!
 @router.post("/")
 async def add_specific_operation(new_operation:OperationCreate, session: AsyncSession = Depends(get_async_session)):
-    
-    query = insert(operation).values(
-        quantity = new_operation.quantity,
-        figi = new_operation.figi,
-        instrument_type = new_operation.instrument_type,
-        type = new_operation.type,
-    )
+    query = insert(operation).values(**new_operation.model_dump())
     await session.execute(query)
     await session.commit()
     return{"status":"success"}
