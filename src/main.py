@@ -10,6 +10,7 @@ from fastapi_cache.decorator import cache
 from redis import asyncio as aioredis
 
 from src.config import REDIS_HOST, REDIS_PORT
+from src.tasks.router import report
 # from models.forms import User, Trade
 
 app = FastAPI(title="Trading app")
@@ -33,6 +34,7 @@ app.include_router(
 )
 
 app.include_router(operation_router)
+app.include_router(report)
 
 @app.on_event("startup")
 async def startup():
