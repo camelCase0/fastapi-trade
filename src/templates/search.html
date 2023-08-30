@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script>
+    const SearchOperation = ()=>{
+        const operation_type = document.getElementById("search").value;
+        window.location.href = `/search/${operation_type}`;
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+<div>
+    <div>
+        <input id="search" type="text" placeholder="Operation type">
+        <button onclick="SearchOperation()">Search</button>
+    </div>
+    <div>
+        <span>Example: Coupon payment, Withholding personal income tax on coupons, Withdrawal of funds, Sale of securities</span>
+        {% for operation in operations %}
+        <div>
+            <span class="text-2xl font-bold">{{ operation.type }}</span>
+            <span class="text-lg">{{ operation.date }}</span>
+            <span class="text-lg">{{ operation.quantity }}</span>
+            <span class="text-lg">{{ operation.figi }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -39,7 +39,8 @@ app.include_router(report)
 
 
 origins = [
-    "http://localhost:3000",
+    "http://localhost:8000",
+  
 ]
 
 app.add_middleware(
@@ -47,7 +48,7 @@ app.add_middleware(
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["GET", "POST", "OPTIONS", "DELETE", "PATCH", "PUT"],
-    allow_headers=["Content-Type", "Set-Cookie", "Access-Control-Allow-Headers", "Access-Control-Allow-Origin",
+    allow_headers=["Accept","Content-Type", "Set-Cookie", "Access-Control-Allow-Headers", "Access-Control-Allow-Origin",
                    "Authorization"],
 )
 
