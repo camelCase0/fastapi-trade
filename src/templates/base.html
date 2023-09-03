@@ -16,8 +16,13 @@
             <li>Trading</li>
         </ul>
         <ul class="flex gap-5 mr-10">
+            {% if request.cookies.TradeApp %}
             <li>My account</li>
             <li>Logout</li>
+            {% else %}
+            <li>Login</li>
+            {% endif %}
+            
         </ul>
     </nav>
     <hr>

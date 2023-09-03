@@ -2,6 +2,8 @@ from src.auth.auth import auth_backend, fastapi_users
 from src.auth.schema import UserCreate, UserRead, UserUpdate
 from fastapi import FastAPI
 from src.operations.router import router as operation_router
+from src.tasks.router import report
+from src.pages.router import router as page_router
 
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
@@ -11,7 +13,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from redis import asyncio as aioredis
 
 from src.config import REDIS_HOST, REDIS_PORT
-from src.tasks.router import report
 # from models.forms import User, Trade
 
 app = FastAPI(title="Trading app")
@@ -35,6 +36,7 @@ app.include_router(
 )
 
 app.include_router(operation_router)
+app.include_router(page_router)
 app.include_router(report)
 
 
