@@ -1,9 +1,9 @@
-from src.auth.auth import auth_backend, fastapi_users
-from src.auth.schema import UserCreate, UserRead, UserUpdate
+from auth.auth import auth_backend, fastapi_users
+from auth.schema import UserCreate, UserRead, UserUpdate
 from fastapi import FastAPI
-from src.operations.router import router as operation_router
-from src.tasks.router import report
-from src.pages.router import router as page_router
+from operations.router import router as operation_router
+from tasks.router import report
+from pages.router import router as page_router
 
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
@@ -12,7 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from redis import asyncio as aioredis
 
-from src.config import REDIS_HOST, REDIS_PORT
+from config import REDIS_HOST, REDIS_PORT
 # from models.forms import User, Trade
 
 app = FastAPI(title="Trading app")

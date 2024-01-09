@@ -1,8 +1,8 @@
-from fastapi_users.authentication import CookieTransport, AuthenticationBackend, JWTStrategy
 from fastapi_users import FastAPIUsers
-from src.auth.models import User
-from src.auth.manager import get_user_manager
-from src.config import SECRET_COOK
+from fastapi_users.authentication import CookieTransport, AuthenticationBackend, JWTStrategy
+from auth.models import User
+from auth.manager import get_user_manager
+from config import SECRET_COOK
 
 
 cookie_transport = CookieTransport(cookie_name="TradeApp", cookie_max_age=3600)

@@ -3,8 +3,8 @@
 
 from fastapi import APIRouter, Depends
 
-from src.tasks.tasks import send_email_report
-from src.auth.auth import current_user
+from tasks.tasks import send_email_report
+from auth.auth import current_user
 
 report = APIRouter(prefix="/report",tags=['tasks'])
 

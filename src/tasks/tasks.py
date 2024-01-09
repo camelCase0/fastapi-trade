@@ -1,7 +1,7 @@
 from email.message import EmailMessage
 import smtplib
 from celery import Celery
-from src.config import REDIS_HOST, REDIS_PORT, SMTP_PASS, SMTP_USER
+from config import REDIS_HOST, REDIS_PORT, SMTP_PASS, SMTP_USER
 
 SMTP_HOST="smtp.gmail.com"
 SMTP_PORT="465"

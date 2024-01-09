@@ -2,7 +2,7 @@ from fastapi_users_db_sqlalchemy import SQLAlchemyBaseUserTable
 from sqlalchemy import JSON, Column, Integer, String, TIMESTAMP, ForeignKey,Boolean, Table
 from sqlalchemy.orm import DeclarativeBase
 from datetime import datetime
-from src.database import metadata
+from database import metadata
 
 class Base(DeclarativeBase):
     pass
