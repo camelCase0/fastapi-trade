@@ -15,6 +15,18 @@ jobs:
     runs-on: self-hosted
     needs: test
     steps:
+      - name: Make envfile
+        uses: camelCase0/fastapi-trade@v2.0
+        with:
+          envkey_DEBUG: false
+          envkey_SOME_API_KEY: "123456abcdef"
+          envkey_SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          envkey_VARIABLE: ${{ vars.SOME_ACTION_VARIABLE }}
+          some_other_variable: foobar
+          directory: <directory_name>
+          file_name: .env
+          fail_on_empty: false
+          sort_keys: false
       - name: Stop and remove containers, networks
         run: docker compose down
       - name: Remove unused data
