@@ -4,10 +4,104 @@
 
 {% endblock %}
 
+
+{% block style %}
+<style>
+    /* Застосувати стилі до всієї сторінки */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Задати фоновий колір та шрифт для сторінки */
+    body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Створити контейнер для форми */
+    .container {
+        width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Створити заголовок для форми */
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    /* Створити параграф для повідомлення */
+    p {
+        color: #f00;
+        font-weight: bold;
+    }
+
+    /* Створити мітки для полів форми */
+    label {
+        display: block;
+        margin: 10px 0;
+        color: #333;
+    }
+
+    /* Створити поля для введення даних форми */
+    input {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        outline: none;
+    }
+
+    /* Створити кнопку для відправки форми */
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        background-color: #333;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    /* Додати ефект переходу до кнопки */
+    button:hover {
+        background-color: #444;
+        transform: scale(1.05);
+        transition: all 0.3s;
+    }
+
+    /* Додати іконку до кнопки */
+    button::before {
+        content: "\f2f6";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        margin-right: 10px;
+    }
+</style>
+
+{% endblock %}
 {% block content %}
+<div class="container">
+    <h1>Вхід</h1>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
     <form method="post">
-        <input id="login" type="text" placeholder="Login" name="email" value="{{email}}" class="form-control">
-        <input id="password" type="text" placeholder="Password" name="password" value="{{password}}" class="form-control"> 
-        <button type="submit" >Submit</button>
+        <label for="email">Електронна пошта:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Увійти</button>
     </form>
+</div>
+</body>
+
+</html>
 {% endblock %}

@@ -2,12 +2,13 @@
 import pytest
 from sqlalchemy import insert, select
 
-from src.auth.models import role
+from auth.models import role
 from conftest import client, async_session_maker
 
 
 async def test_add_role():
     async with async_session_maker() as session:
+
         stmt = insert(role).values(id=1, name="admin", permission=None)
         await session.execute(stmt)
         await session.commit()
