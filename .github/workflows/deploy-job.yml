@@ -16,7 +16,7 @@ jobs:
     needs: test
     steps:
       - name: Make envfile
-        uses: camelCase0/fastapi-trade@v1.0
+        uses: camelCase0/fastapi-trade@v1.0.0
         with:
           envkey_DEBUG: false
           secrets: ${{ toJSON(secrets) }}
