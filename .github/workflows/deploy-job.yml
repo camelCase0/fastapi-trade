@@ -33,4 +33,4 @@ jobs:
         run: |
           echo "${{ secrets.ENV_FILE }}" > .env-non-dev
       - name: Build and deploy docker
-        run: docker compose up -d
+        run: docker compose --env-file .env-non-dev up -d
