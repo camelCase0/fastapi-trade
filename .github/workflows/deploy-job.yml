@@ -16,13 +16,10 @@ jobs:
     needs: test
     steps:
       - name: Make envfile
-        uses: camelCase0/fastapi-trade@v1.0.0
-        with:
-          envkey_DEBUG: false
-          secrets: ${{ toJSON(secrets) }}
-          file: .env-non-dev
+        run: |
+          echo "${{ secrets.ENV_FILE }}" > .env-non-dev
       - name: Stop and remove containers, networks
-        run: pwd
+        run: docker compose down
       - name: Remove unused data
         run: docker system prune -a -f
 
