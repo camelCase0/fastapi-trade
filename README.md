@@ -1,0 +1,1 @@
+[![Deploy buy runner](https://github.com/camelCase0/fastapi-trade/actions/workflows/deploy-job.yml/badge.svg?branch=master)](https://github.com/camelCase0/fastapi-trade/actions/workflows/deploy-job.yml)
