@@ -22,7 +22,7 @@ jobs:
           secrets: ${{ toJSON(secrets) }}
           file: .env-non-dev
       - name: Stop and remove containers, networks
-        run: ls -la
+        run: pwd
       - name: Remove unused data
         run: docker system prune -a -f
 
