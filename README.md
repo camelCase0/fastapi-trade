@@ -1,12 +1,12 @@
 
 
-# Project Name
+# FastAPI demo backend app 
 [![Deploy buy runner](https://github.com/camelCase0/fastapi-trade/actions/workflows/deploy-job.yml/badge.svg?branch=master)](https://github.com/camelCase0/fastapi-trade/actions/workflows/deploy-job.yml)
 
 Brief project description and what it does.
 
 ## Features
-
+- **FastAPI** Backend with Swagger documentation
 - **Registration and Authorization:** Users can register and log in securely using FastAPI authentication.
 - **Email Sending:** Integration with an email sending service for user notifications.
 - **Celery Workers Task Queuing:** Asynchronous task execution using Celery for background processing.
@@ -53,4 +53,5 @@ For this you need to config database redis and celery workers manually!
  2. Start containers
     ```bash
     docker compose up -d
- 3. Open your web browser and access the application at http://localhost:{PORT}. 
+ 3. Open your web browser and access the application at http://localhost:{PORT}.
+    At http://localhost:{PORT}/docs you can find Swagger documentation
