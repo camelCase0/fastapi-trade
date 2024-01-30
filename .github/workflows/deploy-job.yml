@@ -27,7 +27,10 @@ jobs:
     runs-on: self-hosted
     needs: prepare-environment
     steps:
-      - name: checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
-      - name: docker-compose
+      - name: Make envfile
+        run: |
+          echo "${{ secrets.ENV_FILE }}" > .env-non-dev
+      - name: Build and deploy docker
         run: docker compose up -d
